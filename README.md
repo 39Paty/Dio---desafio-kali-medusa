@@ -1,22 +1,24 @@
-# Auditoria de Segurança: Ataques de Força Bruta com Medusa e Kali Linux
+# Auditoria de Segurança: Ataques de Força Bruta com Medusa 🛡️
 
 ## Sobre o Projeto
-Este projeto apresenta um estudo técnico sobre a execução e mitigação de ataques de força bruta em ambientes controlados. Utilizando o **Kali Linux** como plataforma de ataque e o **Metasploitable 2** como alvo, simulamos vulnerabilidades em serviços críticos como FTP, SSH e aplicações Web (DVWA).
+Este projeto documenta a implementação de um laboratório de segurança ofensiva focado em ataques de força bruta (Brute Force). O objetivo é demonstrar como vulnerabilidades de autenticação podem ser exploradas e, principalmente, como implementar medidas de defesa eficazes para proteger serviços de rede e aplicações web.
 
 ---
 
-## Configuração do Ambiente.
-Para garantir a segurança, o ambiente foi planejado sob uma rede isolada:
-* **Rede:** VirtualBox Host-Only Adapter (IP: 192.168.56.0/24).
-* **Máquina Atacante:** Kali Linux (IP 192.168.56.101).
-* **Máquina Alvo:** Metasploitable 2 (IP 192.168.56.102).
+## Metodologia e Infraestrutura
+Para otimização de hardware e eficiência técnica, o ambiente foi estruturado utilizando **Containers Docker** em um host **Linux Mint**, em vez de virtualização pesada. Esta abordagem permitiu um consumo reduzido de RAM e maior estabilidade nos testes.
+
+* **Ferramenta de Ataque:** Medusa v2.2 (Execução nativa/Docker).
+* **Alvo Vulnerável:** DVWA (Damn Vulnerable Web Application) hospedado via Docker.
+* **Protocolos Auditados:** HTTP (Formulário Web) e planejamento para FTP.
+* **Rede:** Loopback (127.0.0.1) com mapeamento de portas (8080:80).
 
 ---
 
-## Execução Técnica.
+## Execução Técnica (Cenários Reais)
 
-### 1. Reconhecimento com Nmap
-O primeiro passo é identificar as portas abertas no alvo:
+### 1. Reconhecimento
+Antes de iniciar o ataque, validei se o serviço alvo estava ativo:
 ```bash
-# Comando para identificar serviços e versões
-nmap -sV -Pn 192.168.56.102
+# Verificando se o container do alvo está rodando
+sudo docker ps
