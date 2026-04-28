@@ -1,4 +1,4 @@
-# Auditoria de Segurança: Ataques de Força Bruta com Medusa e Kali Linux 🛡️
+# Auditoria de Segurança: Ataques de Força Bruta com Medusa e Kali Linux
 
 ## Sobre o Projeto
 Este projeto apresenta um estudo técnico sobre a execução e mitigação de ataques de força bruta em ambientes controlados. Utilizando o **Kali Linux** como plataforma de ataque e o **Metasploitable 2** como alvo, simulamos vulnerabilidades em serviços críticos como FTP, SSH e aplicações Web (DVWA).
